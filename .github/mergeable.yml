@@ -1,0 +1,10 @@
+version: 2
+mergeable:
+  - when: pull_request.*, pull_request_review.*
+    name: 'Approval check'
+    validate:
+      - do: approvals
+        min:
+          count: 3
+        limit:
+          users: [ 'BAbate','kirubeltadesse', 'dinaolmelak', 'Getnet12']
