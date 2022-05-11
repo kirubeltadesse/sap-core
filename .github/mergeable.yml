@@ -5,6 +5,6 @@ mergeable:
     validate:
       - do: approvals
         min:
-          count: 3
+          count: 1
         limit:
           users: [ 'BAbate','kirubeltadesse', 'dinaolmelak', 'Getnet12']
