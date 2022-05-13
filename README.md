@@ -66,6 +66,7 @@ This is how the container will be setup.
 ...
 
 ```mermaid
+
     graph LR;
         Client> Client]-->|request|Server(<img src='https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png' width='120' height='120' /> Server)
         Server -.->|response|Client
