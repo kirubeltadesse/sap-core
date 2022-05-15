@@ -82,6 +82,11 @@ This is how the container will be setup.
 
 <summary> FAQ working with vs code </summary>
 
+## Mac
+Make sure you have [code](https://code.visualstudio.com/docs/setup/mac) command installed in your path.
+
+![walkthrough](https://user-images.githubusercontent.com/32272045/168448980-c8fcf5b3-9fad-4898-b7cc-a22dd256b19f.png)
+## Windows
 -   `code .` is not openning on `wsl`
 
 -   ANS: Linking VScode [locally](https://stackoverflow.com/questions/57868950/wsl2-terminal-does-not-recognize-visual-studio-code)
