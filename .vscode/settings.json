@@ -2,5 +2,8 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "prettier.tabWidth": 4,
-    "editor.fontFamily": "Cascadia Code, Fira Code"
+    "editor.fontFamily": "Cascadia Code, Fira Code",
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    }
 }
