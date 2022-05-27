@@ -14,9 +14,10 @@ services:
 
   svc:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command: bash -c "python manage.py migrate &&
+      python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/code
+      - .:/workarea
     ports:
       - "8000:8000"
     environment:
@@ -25,3 +26,19 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+
+  ui:
+    restart: always
+    build:
+      context: ./frontend/
+      dockerfile: Dockerfile
+
+    command: npm start
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    depends_on:
+      - svc
+# networks:
+#   db-net:
+#     driver: bridge
