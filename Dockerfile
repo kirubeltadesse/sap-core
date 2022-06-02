@@ -10,10 +10,10 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /workarea
 
 # copying the requirements.txt file to the work directory
-COPY requirements.txt /workarea/
+COPY requirements.txt ./
 
 # Installing the python requirement on the container
 RUN pip install -r requirements.txt
 
 # copying all local file to the container
-COPY . /workarea/
+COPY . ./
