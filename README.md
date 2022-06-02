@@ -69,6 +69,13 @@ This is how the container will be setup.
 
 ---
 
+### Commend to start the docker daemon
+
+```bash
+sudo service docker start   # for work with SysVinit
+sudo systemctl start docker # for work with Systemd
+```
+
 <details>
 
 <summary> FAQ working with vs code </summary>
