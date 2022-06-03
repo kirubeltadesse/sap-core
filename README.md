@@ -70,6 +70,13 @@ This is how the container will be setup.
 
 ---
 
+### Commend to start the docker daemon
+
+```bash
+sudo service docker start   # for work with SysVinit
+sudo systemctl start docker # for work with Systemd
+```
+
 <details>
 
 <summary> FAQ working with vs code </summary>
@@ -82,8 +89,8 @@ Make sure you have [code](https://code.visualstudio.com/docs/setup/mac) command 
 
 ## Windows
 
--   `code .` is not openning on `wsl`
+- `code .` is not openning on `wsl`
 
--   ANS: Linking VScode [locally](https://stackoverflow.com/questions/57868950/wsl2-terminal-does-not-recognize-visual-studio-code)
+- ANS: Linking VScode [locally](https://stackoverflow.com/questions/57868950/wsl2-terminal-does-not-recognize-visual-studio-code)
 
 </details>
