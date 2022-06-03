@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/Swarmies/sap-web/tree/develop.svg?style=svg)](https://circleci.com/gh/Swarmies/sap-web/tree/develop)
 # sap-web
 
 Scholar Academy Project
