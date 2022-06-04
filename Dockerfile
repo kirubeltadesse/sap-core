@@ -7,7 +7,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # defining the work directory in the docker container
-WORKDIR /workarea
+WORKDIR /usr/workarea
 
 # copying the requirements.txt file to the work directory
 COPY requirements.txt ./
@@ -17,3 +17,5 @@ RUN pip install -r requirements.txt
 
 # copying all local file to the container
 COPY . ./
+
+CMD [bash -c python manage.py migrate && python manage.py runserver 0.0.0.0:8000]
