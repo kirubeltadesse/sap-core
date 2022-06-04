@@ -22,9 +22,9 @@ Once that is finished the install package will show up on VScode.
 
 ![Vscode extension](/Doc/img/extenstion_installed.PNG)
 
-on your terminal (`wsl` if you are on windows). This will install all the necessary extension for you to work with `docker` on VScode.
+on your terminal (`wsl` if you are on windows). This will install all the necessary extensions for you to work with `docker` on VScode.
 
-To run the project locally you need to make sure you have [Docker Engine](https://docs.docker.com/engine/install/) and [Docker-Compose](https://docs.docker.com/compose/install/) installed. Docker makes it convenient to package every tooling needed for the project. Docker gets read of the headache of set up a Virtual Environment, installing dependencies, creating a new Database in PostGradSQL, migrating the migrations in Django App, building the React App then finally running Django and Web-Pack-dev server.
+To run the project locally you need to make sure you have [Docker Engine](https://docs.docker.com/engine/install/) and [Docker-Compose](https://docs.docker.com/compose/install/) installed. Docker makes it convenient to package every tooling needed for the project. Docker gets read of the headache of setting up a Virtual Environment, installing dependencies, creating a new Database in PostGradSQL, migrating the migrations in Django App, building the React App then finally running Django and Web-Pack-dev server.
 
 ## Terminology
 
@@ -122,7 +122,7 @@ There is the process that we follow throughout our development cycle:
 2. Clone your forked repository:
 3. [Install the software](#prerequisites) and [VS code extensions](#formatting)
 4. Build [docker containers](/Doc/docker-command-guide.md)
-5. Make changes and push to your Fork repository
+5. Make changes and push them to your Fork repository
 6. Open up a Peer Review (PR)
 
 ---
