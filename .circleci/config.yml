@@ -26,11 +26,11 @@ jobs:
 
         steps:
             - checkout
-            - run: sudo apt-get update
+            # - run: sudo apt-get update
         #     - run: sudo apt-get install postgresql-client
         #     - run: whoami
-        #     - run: python manage.py migrate
-        #     - run: python manage.py runserver 0.0.0.0:8000
+            - run: python manage.py migrate
+            - run: python manage.py runserver 0.0.0.0:8000
         #     - run: curl localhost:8000
         #     - run: |
         #         psql \
