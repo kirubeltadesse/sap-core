@@ -19,9 +19,12 @@ jobs:
             #   environment:
             #     TEST_DATABASE_URL: postgresql://postgres@localhost/cicle_test
 
-            # - image: cimg/postgres
-            #   environment:
-            #     POSTGRES_USER: postgres
+            - image: cimg/postgres
+              environment:
+                POSTGRES_USER: postgres
+              auth:
+                username: kirubeltadesse
+                password: $DOCKERHUB_PASSWORD
 
 
         steps:
