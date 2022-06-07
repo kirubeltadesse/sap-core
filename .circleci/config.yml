@@ -26,7 +26,6 @@ jobs:
 
         steps:
             - checkout
-            # - run: sudo apt-get update
         #     - run: sudo apt-get install postgresql-client
         #     - run: whoami
             - run: python manage.py migrate
