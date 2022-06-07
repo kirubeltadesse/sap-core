@@ -15,7 +15,7 @@ jobs:
             - image: kirubeltadesse/sapsvc-1.0              
               auth:
                 username: kirubeltadesse
-                password: 8725+08Ki
+                password: $DOCKERHUB_PASSWORD
             #   environment:
             #     TEST_DATABASE_URL: postgresql://postgres@localhost/cicle_test
 
@@ -54,5 +54,6 @@ workflows:
     container-build: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
         jobs:
-            - build-svc
-            - build-ui
+            - build-svc:
+                context: CONTEXT_DOCK
+            # - build-ui
