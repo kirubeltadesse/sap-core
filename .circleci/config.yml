@@ -9,9 +9,7 @@ orbs:
     python: circleci/python@1.5.0
 
 jobs:
-    
     build-svc:
-
         # Primary container image where all commands run
         docker:
             - image: kirubeltadesse/sapsvc-1.0 # using image from dockerhub 
