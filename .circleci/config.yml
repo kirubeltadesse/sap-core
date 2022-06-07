@@ -12,16 +12,17 @@ jobs:
     build-svc:
         # Primary container image where all commands run
         docker:
-            - image: kirubeltadesse/sapsvc-1.0
+            - image: kirubeltadesse/sapsvc-1.0              
+              auth:
+                username: kirubeltadesse
+                password: 8725+08Ki
             #   environment:
             #     TEST_DATABASE_URL: postgresql://postgres@localhost/cicle_test
 
             # - image: cimg/postgres
             #   environment:
             #     POSTGRES_USER: postgres
-            #   auth:
-            #     username: postgres
-            #     password: postgres
+
 
         steps:
             - checkout
