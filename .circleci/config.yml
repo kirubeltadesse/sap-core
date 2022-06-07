@@ -17,11 +17,7 @@ jobs:
             - image: kirubeltadesse/sapsvc-1.0 # using image from dockerhub 
               environment:
                 TEST_DATABASE_URL: postgresql://postgres@localhost/cicle_test
-            auth:
-                username: postgres
-                password: postgres
-
-
+                
             - image: cimg/postgres
               environment:
                 POSTGRES_USER: postgres
