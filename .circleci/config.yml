@@ -18,7 +18,6 @@ jobs:
                 password: $DOCKERHUB_PASSWORD
             #   environment:
             #     TEST_DATABASE_URL: postgresql://postgres@localhost/cicle_test
-
             - image: kirubeltadesse/db-1.0
               environment:
                 POSTGRES_DB: postgres
