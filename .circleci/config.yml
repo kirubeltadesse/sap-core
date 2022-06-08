@@ -21,21 +21,17 @@ jobs:
                 password: $DOCKERHUB_PASSWORD
         steps:
             - checkout
-            - run: sudo apt-get update
-            - run: sudo apt-get install postgresql-client
-            - run: whoami
-
-            - run: python manage.py migrate
-            - run: python manage.py runserver 0.0.0.0:8000
-            - run: curl localhost:8000
-            - run: |
-                psql \
-                -d $TEEST_DATABASE URL \        
-                -c "CREATE TABLE test (name char(25));"
-            - run: |
-                psql \
-                -d $TEST_DATABASE_URL \
-                -c "INSERT INTO test VALUES ('Dinaol'), ('Biruk'), ('Kirubel'), ('Getnet');"
+            # - run: sudo apt-get update
+            # - run: sudo apt-get install postgresql-client
+            # - run: whoami
+            # - run: |
+            #     psql \
+            #     -d $TEEST_DATABASE URL \        
+            #     -c "CREATE TABLE test (name char(25));"
+            # - run: |
+            #     psql \
+            #     -d $TEST_DATABASE_URL \
+            #     -c "INSERT INTO test VALUES ('Dinaol'), ('Biruk'), ('Kirubel'), ('Getnet');"
 
     build-svc:
         # Primary container image where all commands run
@@ -51,9 +47,9 @@ jobs:
 
         steps:
             - checkout
-            - run: python manage.py migrate
-            - run: python manage.py runserver 0.0.0.0:8000
-            - run: curl localhost:8000
+            # - run: python manage.py migrate
+            # - run: python manage.py runserver 0.0.0.0:8000
+            # - run: curl localhost:8000
 
     build-ui:
         docker:
