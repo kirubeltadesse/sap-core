@@ -42,9 +42,6 @@ jobs:
                 password: $DOCKERHUB_PASSWORD
             #   environment:
             #     TEST_DATABASE_URL: postgresql://postgres@localhost/cicle_test
-            
-
-
         steps:
             - checkout
             # - run: python manage.py migrate
@@ -57,11 +54,11 @@ jobs:
         
         steps:
             - checkout # check out the code in the project directory
-            - run:
-                name: Change to make direcotry
-                command: cd /frontend
-            - run: npm start 
-            - run: curl localhost:3000
+            # - run:
+                # name: Change to make direcotry
+                # command: cd /frontend
+            # - run: npm start 
+            # - run: curl localhost:3000
 
 workflows:
     container-build: # This is the name of the workflow, feel free to change it to better match your workflow.
