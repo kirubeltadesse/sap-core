@@ -1,22 +1,53 @@
 version: 2.1
-# Orbs are reusable packages of CircleCI configuration that you may share across projects, enabling you to create encapsulated, parameterized commands, jobs, and executors that can be used across multiple projects.
-# See: https://circleci.com/docs/2.0/orb-intro/
-orbs:
-    # The python orb contains a set of prepackaged CircleCI configuration you can use repeatedly in your configuration files
-    # Orb commands and jobs help you with common scripting around a language/tool
-    # so you dont have to copy and paste it everywhere.
-    # See the orb documentation here: https://circleci.com/developer/orbs/orb/circleci/python
-    python: circleci/python@1.5.0
-
 jobs:
-    build:
-        docker:
-            - image: cimg/node:17.2.0 # the primary container, where your job's commands are run
-        steps:
-            - checkout # check out the code in the project directory
-            - run: echo "Hello SAP" # run the `echo` command
-workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
-    jobs:
-      - build
+  build:
+    working_directory: /sap-web
+    # build-svc:
+    # Primary container image where all commands run
+    docker:
+      - image: docker:17.05.0-ce-git # using image from dockerhub
+    steps:
+      - checkout
+      - setup_remote_docker
+      # - run: python manage.py migrate
+      # - run: python manage.py runserver 0.0.0.0:8000
+      # - run: curl localhost:8000
+      - run:
+          name: Install dependencies
+          command: |
+            apk add --no-cache py-pip=9.0.0-r1
+            pip install docker-compose==1.15.0
+      # - run:
+      #     name: Start container and varify it's working
+      # TODO: it is not find the docker-compose on the circleci
+      #     command: |
+      #       set -x
+      #       docker-compose up -d
+      #     # TODO: docker-compose run <svc-name> python test.py
+      # - run:
+      #     name: Test Django service
+      #     command: |
+      #       docker-compose ps
+      #       # docker-compose run svc
+      #       # docker-compose exec db bash
+      #       # python manage.py migrate
+      # - deploy:
+      #     name: Push application Docker image
+      #     command: |
+      #       docker login -u $DOCKER_HUB_USER -p $DOCKERHUB_PASS
+      #       docker tag sap-web $DOCKER_HUB_USER/sap-web:$CIRCLE_SHA1
+      #       docker tag sap-web $DOCKER_HUB_USER/sap-web:latest
+      #       docker push $DOCKER_HUB_USER/sap-web:$CIRCLE_SHA1
+      #       docker push $DOCKER_HUB_USER/sap-web:latest
+
+  #   container-build: # This is the name of the workflow, feel free to change it to better match your workflow.
+  #     # Inside the workflow, you define the jobs you want to run.
+  # jobs:
+  #       - build-db:
+  #           context: CONTEXT_DOCK
+  # - build:
+  # context: CONTEXT_DOCK
+  # - build-ui:
+  # context: CONTEXT_DOCK
+
+# workflows:
