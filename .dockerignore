@@ -1,2 +1,5 @@
+.circleci
 .git/
 node_modules/
+Dockerfile
+*/env
