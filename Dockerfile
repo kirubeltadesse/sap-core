@@ -1,5 +1,10 @@
 # base image of the docker container
-FROM python:3
+FROM python:3.8.5-slim-buster
+
+# set the user to non root
+# RUN useradd -ms /bin/bash appuser -u 1000
+
+# USER appuser
 
 # setting enviromenat variable 
 ENV PYTHONDONTWRITEBYTECODE=1
