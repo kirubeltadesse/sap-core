@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include  
 
 urlpatterns = [
+    path('', include('backend.urls')), # namespace='api' is not supported in Django 4.1
+    path('api/', include('api.urls')), # namespace='api' is not supported in Django 4.1
     path('admin/', admin.site.urls),
-    path('', include('api.urls')), # namespace='api' is not supported in Django 4.1
 ]

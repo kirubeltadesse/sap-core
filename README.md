@@ -125,6 +125,33 @@ There is the process that we follow throughout our development cycle:
 5. Make changes and push them to your Fork repository
 6. Open up a Peer Review (PR)
 
+## Tests and Databases
+
+After creating a model you need to run the codes below
+
+```bash
+python manage.py makemigrations --dry-run --verbosity 3
+```
+
+then
+
+```bash
+python manage.py migrate 
+```
+
+To run coverage locally you can run
+
+```bash
+coverage run --omit='*/Doc/*' manage.py test
+```
+
+Now you can run the command below and open the html file in your fevorite edit and see what tests are missing
+
+```bash
+coverage html
+```
+
+
 ---
 
 <details>
