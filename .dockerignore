@@ -1,5 +1,9 @@
+.vscode
 .circleci
 .git/
+.github
+.devcontainer
 node_modules/
 Dockerfile
+.dockerignore
 */env

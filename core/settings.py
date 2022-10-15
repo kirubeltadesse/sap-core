@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# AUTH_USER_MODEL = 'backend.User'
 
 # Application definition
 
@@ -38,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
+    'backend',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +130,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# This is the default value for the `DEFAULT_AUTHENTICATION_CLASSES` setting.
+# It is used when the `DEFAULT_AUTHENTICATION_CLASSES` setting is not defined.
+# It is a list of authentication classes that should be used for all views
+# TODO: Add your authentication classes here
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}

@@ -18,15 +18,15 @@ services:
     command: bash -c "python manage.py migrate &&
       python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/usr/workarea
+      - .:/workarea
     ports:
       - "8000:8000"
     environment:
       - POSTGRES_DB=saptable
       - POSTGRES_USER=rootUser
       - POSTGRES_PASSWORD=rootPassword
-    # depends_on:
-    #   - db
+    depends_on:
+      - db
   ui:
     # restart: always
     build:
@@ -34,7 +34,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./frontend:/workarea/frontend
-      - ./frontend/node_modules
+      - ./frontend/node_modules:/workarea/frontend/node_modules
     command: npm start
     ports:
       - "3000:3000"
@@ -45,6 +45,8 @@ services:
 
 volumes:
   postgresData:
+  frontend:
+    driver: local
 # networks:
 #   db-net:
 #     driver: bridge
