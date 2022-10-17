@@ -41,4 +41,3 @@ class TestEvent(APITestCase):
 
 
 
-# Create your tests here.

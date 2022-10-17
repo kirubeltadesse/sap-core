@@ -2,7 +2,6 @@
 	"name": "Existing Docker Compose (Extend)",
 
 	"dockerComposeFile": [
-		"../docker-compose.yml",
 		"docker-compose.yml"
 	],
 
@@ -21,7 +20,8 @@
 		"cweijan.vscode-database-client2",
 		"ms-python.python",
 		"ms-python.vscode-pylance",
-		"davidanson.vscode-markdownlint"
+		"davidanson.vscode-markdownlint", 
+		"ms-azuretools.vscode-docker"
 	]
 
 }
