@@ -12,7 +12,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # defining the work directory in the docker container
-WORKDIR /usr/workarea
+WORKDIR /workspace
 
 # copying the requirements.txt file to the work directory
 COPY requirements.txt ./
