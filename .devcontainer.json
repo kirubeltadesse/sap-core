@@ -25,14 +25,13 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"davidanson.vscode-markdownlint", 
-		"znck.grammarly", // https://marketplace.visualstudio.com/items?itemName=znck.grammarly
 		"github.copilot",
 		"esbenp.prettier-vscode",
 		"gruntfuggly.todo-tree",
 		"cweijan.vscode-database-client2",
 		"ms-python.python",
 		"ms-python.vscode-pylance",
+		"davidanson.vscode-markdownlint", 
 		"ms-azuretools.vscode-docker"
 	]
 
