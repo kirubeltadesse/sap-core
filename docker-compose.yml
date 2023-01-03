@@ -40,8 +40,8 @@ services:
       - "3000:3000"
     stdin_open: true
     tty: true
-    # depends_on:
-    # - svc
+    depends_on:
+    - svc
 
 volumes:
   postgresData:
