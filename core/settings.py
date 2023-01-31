@@ -41,11 +41,13 @@ INSTALLED_APPS = [
     'api',
     'backend',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -140,3 +142,15 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ],
 }
+
+CORS_ALLOWED_ORIGINS = [
+    # add your frontend url here to allow requests from it
+    # allow requests from localhost on port all ports
+    "http://localhost:3001",
+    "http://localhost:3000",
+    "http://localhost:3002",
+]
+
+# FIXME: Admin password and username 
+# Password: admin
+# username: admin

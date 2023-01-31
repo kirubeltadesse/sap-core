@@ -10,7 +10,18 @@
 	"workspaceFolder": "/workspace",
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": {},
+	"settings": {
+		"editor.formatOnSave": false,
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.fontFamily": "Cascadia Code, Fira Code",
+		"[markdown]": {
+		"editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+		},
+		"[python]": {
+		"editor.defaultFormatter": "ms-python.python"
+		},
+		"grammarly.files.include": ["**/*.md", "**/*.txt"]
+	},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
