@@ -4,6 +4,7 @@ backports.zoneinfo==0.2.1
 coverage==6.5.0
 Django==4.1.2
 djangorestframework==3.14.0
+psycopg2==2.9.4
 psycopg2-binary==2.9.4
 pycodestyle==2.9.1
 pytz==2022.4
