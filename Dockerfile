@@ -1,5 +1,5 @@
 # base image of the docker container
-FROM python:3.8.5-slim-buster
+FROM python:3.9.1
 
 # set the user to non root
 # RUN useradd -ms /bin/bash appuser -u 1000
