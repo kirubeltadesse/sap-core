@@ -154,3 +154,5 @@ CORS_ALLOWED_ORIGINS = [
 # FIXME: Admin password and username 
 # Password: admin
 # username: admin
+
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'}
