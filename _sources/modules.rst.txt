@@ -1,6 +1,10 @@
-projects
-========
+sap-web
+=======
 
 .. toctree::
    :maxdepth: 4
 
+   api
+   backend
+   core
+   manage
