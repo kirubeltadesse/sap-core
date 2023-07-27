@@ -35,9 +35,10 @@ services:
     volumes:
       - ./frontend:/workspace/frontend
       - ./frontend/node_modules:/workspace/frontend/node_modules
-    command: npm start
+    command: npm run start
     ports:
       - "3000:3000"
+      - "9229:9229"
     stdin_open: true
     tty: true
     depends_on:
