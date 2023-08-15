@@ -151,6 +151,11 @@ Now you can run the command below and open the html file in your fevorite edit a
 coverage html
 ```
 
+To run the test you can just use the `pytest` package
+
+```bash
+pytest
+```
 
 ---
 

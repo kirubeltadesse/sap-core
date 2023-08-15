@@ -15,12 +15,14 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /workspace
 
 # copying the requirements.txt file to the work directory
-COPY requirements.txt ./
+COPY requirements*.txt ./
 
 # Installing the python requirement on the container
-RUN pip install -r requirements.txt
+RUN pip install -r requirements-dev.txt
+
+RUN pip install debugpy -t /tmp
 
 # copying all local file to the container
 COPY . ./
 
-CMD [bash -c python manage.py migrate && python manage.py runserver 0.0.0.0:8000]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "core.wsgi"]
