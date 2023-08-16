@@ -8,7 +8,7 @@ repository:
     description: description of repo
 
     # A URL with more information about the repository
-    homepage: https://example.github.io/
+    homepage: https://swarmies.github.io/sap-web/
 
     # Either `true` to make the repository private, or `false` to make it public.
     private: false
@@ -23,7 +23,7 @@ repository:
     has_downloads: true
 
     # Updates the default branch for this repository.
-    default_branch: master
+    default_branch: develop
 
     # Either `true` to allow squash-merging pull requests, or `false` to prevent
     # squash-merging.
@@ -56,6 +56,9 @@ collaborators:
       # * `push` - can pull and push, but not administer this repository.
       # * `admin` - can pull, push and administer this repository.
       permission: push
+      
+    - username: Roberamelaek
+      permission: pull
 
     - username: dinaolmelak
       permission: pull
