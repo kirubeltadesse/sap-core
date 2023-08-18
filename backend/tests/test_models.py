@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.contrib.auth.models import User
-from backend.models import Event, Category
+from backend.models import Event, Category, Student
 from django.utils import timezone
 
 
@@ -41,8 +41,10 @@ class TestCreateEvent(TestCase):
         self.assertEqual(str(event), 'Event Title')
         self.assertEqual(str(category), 'django')
 
-
-
+    def test_student(self):
+        test_user = Student.objects.create(first_name='Robera',last_name='Melaek',email='email@gmail.com')
+        username = Student.objects.get(id=1)
+        assert(username.first_name,'Robera')
 
 
 
