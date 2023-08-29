@@ -1,4 +1,4 @@
 -r requirements.txt
 coverage==6.5.0
-pytest==6.2.4
-pytest-django
+pytest-django==4.5.2
+gunicorn

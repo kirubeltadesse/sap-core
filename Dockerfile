@@ -1,18 +1,17 @@
-# base image of the docker container
+# For more information, please refer to https://aka.ms/vscode-docker-python
 FROM python:3.9.1
 
-# set the user to non root
-# RUN useradd -ms /bin/bash appuser -u 1000
+EXPOSE 8000
 
-# USER appuser
-
-# setting enviromenat variable 
+# Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
 
+# Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
-# defining the work directory in the docker container
-WORKDIR /workspace
+# Install pip requirements
+COPY requirements*.txt .
+RUN python -m pip install -r requirements-dev.txt
 
 # copying the requirements.txt file to the work directory
 COPY requirements*.txt ./
@@ -20,9 +19,12 @@ COPY requirements*.txt ./
 # Installing the python requirement on the container
 RUN pip install -r requirements-dev.txt
 
-RUN pip install debugpy -t /tmp
+WORKDIR /workspace
+COPY . /workspace
 
-# copying all local file to the container
-COPY . ./
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /workspace
+USER appuser
 
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "core.wsgi"]

@@ -9,6 +9,13 @@
 
   // Set *default* container specific settings.json values on container create.
   "settings": {
+    "_workbench.uiExtensions": ["peterjausovec.vscode-docker"],
+    "python.jediEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "pythonTestExplorer.testFramework": "pytest",
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    "python.pythonPath": "/usr/local/bin/python3",
+    "python.testing.pytestPath": "/usr/local/bin/pytest",
     "editor.formatOnSave": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.fontFamily": "Cascadia Code, Fira Code",
@@ -25,12 +32,12 @@
   "extensions": [
     "github.copilot",
     "eamodio.gitlens",
+    "shardulm94.trailing-spaces",
     "esbenp.prettier-vscode",
+    "ms-python.python",
     "gruntfuggly.todo-tree",
     "cweijan.vscode-database-client2",
-    "ms-python.python",
-    "ms-python.vscode-pylance",
-    "davidanson.vscode-markdownlint",
+    "littlefoxteam.vscode-python-test-adapter",
     "ms-azuretools.vscode-docker"
   ]
 }

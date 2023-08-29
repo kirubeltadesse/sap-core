@@ -14,19 +14,20 @@ services:
 
   svc:
     build: .
-    # user: 1000:1000
-    command: bash -c "python manage.py migrate &&
-      python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/workspace
     ports:
       - "8000:8000"
+      - "5678:5678"
     environment:
       - POSTGRES_DB=saptable
       - POSTGRES_USER=rootUser
       - POSTGRES_PASSWORD=rootPassword
     depends_on:
       - db
+    command: ["bash", "-c",
+      "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 \
+       manage.py runserver 0.0.0.0:8000 --nothreading --noreload"]
   ui:
     # restart: always
     build:

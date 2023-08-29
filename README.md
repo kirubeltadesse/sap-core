@@ -136,8 +136,11 @@ python manage.py makemigrations --dry-run --verbosity 3
 then
 
 ```bash
-python manage.py migrate 
+python manage.py migrate
 ```
+
+You can use, the extension to run the test and the debugger.
+If the debugger is not working, make sure to choose the right Python interpreter.
 
 To run coverage locally you can run
 
@@ -145,7 +148,7 @@ To run coverage locally you can run
 coverage run --omit='*/Doc/*' manage.py test
 ```
 
-Now you can run the command below and open the html file in your fevorite edit and see what tests are missing
+Now you can run the command below open the HTML file in your favorite edit and see what tests are missing
 
 ```bash
 coverage html
@@ -173,7 +176,7 @@ pytest
 > try running the command below and rebuilding the image.
 
 ```bash
-rm -rf /usr/local/lib/node_modules/npm 
+rm -rf /usr/local/lib/node_modules/npm
 ```
 
 ## Docker issues
