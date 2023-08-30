@@ -42,11 +42,15 @@ class TestCreateEvent(TestCase):
         self.assertEqual(str(category), 'django')
 
     def test_student(self):
-        test_user = Student.objects.create(first_name='Robera',last_name='Melaek',email='email@gmail.com')
+        test_user = Student.objects.create(first_name='Robera',last_name='Melaek',username='Melaek',password='Password',email='email@gmail.com',jnumber=1,role='student')
         username = Student.objects.get(id=1)
-        assert(username.first_name,'Robera')
-
-
-
+        self.assertEqual(f'{username.username}','Melaek')
+        self.assertEqual(f'{username.last_name}','Melaek')
+        self.assertEqual(f'{username.password}','Password')
+        self.assertEqual(f'{username.jnumber}','1')
+        self.assertEqual(f'{username.role}','student')
+        self.assertEqual(f'{username.email}','email@gmail.com')
+        self.assertEqual(f'{username.first_name}','Robera')
+        self.assertEqual(f'{username.student_id}','1')
 
 

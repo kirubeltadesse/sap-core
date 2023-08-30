@@ -20,27 +20,30 @@ from django.utils import timezone
 #     is_superuser = models.BooleanField(default=False)
 #     name = models.CharField(max_length=100, blank=False, null=True)
 #     phone = models.CharField(max_length=20, blank=True, null=True)
-
-
-class Rootuser(models.Model):
-    name = models.CharField(max_length=100)
-
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
-class Student(models.Model):
+class Mainuser(models.Model):
 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
+    username = models.CharField(max_length=200,unique=True)
+    password = models.CharField(max_length=250)
     email = models.EmailField(unique=True)
+    jnumber = models.IntegerField()
+    role = models.CharField(max_length=100)
+
+class Student(Mainuser):
+    
+    student_id = models.AutoField(primary_key=True)
 
 
-    def __str__(self):
-        return f"{self.first_name} {self.last_name}"
+class Mentor(Mainuser):
 
+    mentor_id = models.AutoField(primary_key=True)
 # # create a model with two different user
 # class Mentor(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='mentor')
@@ -52,6 +55,7 @@ class Student(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='student')
 #     category = models.ManyToManyField(Category)
 #     def __str__(self):
+ 
 #         return self.user.username
 
 # Create Event model with title, content, date_posted, student, mentor, start_date, end_date, category, status

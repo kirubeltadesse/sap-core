@@ -14,5 +14,7 @@ class EventAdmin(admin.ModelAdmin):
 admin.site.register(models.Category)
 # Register your models here.
 
+admin.site.register(models.Mainuser)
+
 admin.site.register(models.Student)
 

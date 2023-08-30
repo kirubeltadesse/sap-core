@@ -1,6 +1,6 @@
 from rest_framework import generics
-from backend.models import Event
-from .serializers import EventSerializer
+from backend.models import Event, Mainuser
+from .serializers import EventSerializer, MentorSerializer, MainSerializer, StudentSerializer
 
 
 class EventList(generics.ListCreateAPIView):
@@ -10,3 +10,7 @@ class EventList(generics.ListCreateAPIView):
 class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+
+class MainList(generics.ListCreateAPIView):
+    queryset = Mainuser.objects.all()
+    serializer_class = MainSerializer

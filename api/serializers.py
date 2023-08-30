@@ -1,5 +1,6 @@
+from dataclasses import fields
 from rest_framework import serializers
-from backend.models import Event, Student
+from backend.models import Event, Mainuser, Student, Mentor
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,6 +11,15 @@ class EventSerializer(serializers.ModelSerializer):
 
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Student
-        fields = ('id', 'first_name','last_name','email')
+        model = Mainuser 
+        fields = ('__all__')
 
+class MainSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Student
+        fields = ('__all__')
+
+class MentorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Mentor
+        fields = ('__all__')
