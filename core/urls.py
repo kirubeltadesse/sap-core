@@ -16,18 +16,26 @@ Including another URLconf
 from django.contrib import admin
 from rest_framework.schemas import get_schema_view
 from rest_framework.documentation import include_docs_urls
-from django.urls import path, include  
+from django.urls import path, include
 
 urlpatterns = [
-    path('', include('backend.urls')), # namespace='api' is not supported in Django 4.1
-    path('api/', include('api.urls')), # namespace='api' is not supported in Django 4.1
-    path('admin/', admin.site.urls),
-    path('docs/', include_docs_urls(title='Sap-API', description='This is the API for the Sap-web project. You will be able to find all the endpoints here.')),
-    path('schema', get_schema_view(
-        title="Sap-web-API",
-        description="This is the API for the Sap-web project",
-        version="1.0.0"
-    ), name='openapi-schema'),
+    path("", include("backend.urls")),  # namespace='api' is not supported in Django 4.1
+    path("api/", include("api.urls")),  # namespace='api' is not supported in Django 4.1
+    path("admin/", admin.site.urls),
+    path(
+        "docs/",
+        include_docs_urls(
+            title="Sap-API",
+            description="This is the API for the Sap-web project. You will be able to find all the endpoints here.",
+        ),
+    ),
+    path(
+        "schema",
+        get_schema_view(
+            title="Sap-web-API",
+            description="This is the API for the Sap-web project",
+            version="1.0.0",
+        ),
+        name="openapi-schema",
+    ),
 ]
-
-

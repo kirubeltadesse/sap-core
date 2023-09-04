@@ -20,30 +20,33 @@ from django.utils import timezone
 #     is_superuser = models.BooleanField(default=False)
 #     name = models.CharField(max_length=100, blank=False, null=True)
 #     phone = models.CharField(max_length=20, blank=True, null=True)
+
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
 
-class Mainuser(models.Model):
 
+class Mainuser(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    username = models.CharField(max_length=200,unique=True)
+    username = models.CharField(max_length=200, unique=True)
     password = models.CharField(max_length=250)
     email = models.EmailField(unique=True)
     jnumber = models.IntegerField()
     role = models.CharField(max_length=100)
 
+
 class Student(Mainuser):
-    
     student_id = models.AutoField(primary_key=True)
 
 
 class Mentor(Mainuser):
-
     mentor_id = models.AutoField(primary_key=True)
+
+
 # # create a model with two different user
 # class Mentor(models.Model):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='mentor')
@@ -55,38 +58,38 @@ class Mentor(Mainuser):
 #     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='student')
 #     category = models.ManyToManyField(Category)
 #     def __str__(self):
- 
+
 #         return self.user.username
+
 
 # Create Event model with title, content, date_posted, student, mentor, start_date, end_date, category, status
 class Event(models.Model):
-
     class EventObjects(models.Manager):
         def get_queryset(self):
-            return super().get_queryset().filter(status='published')
+            return super().get_queryset().filter(status="published")
 
     options = (
-        ('draft', 'Draft'),
-        ('pending', 'Pending'),
-        ('published', 'Published'),
+        ("draft", "Draft"),
+        ("pending", "Pending"),
+        ("published", "Published"),
     )
 
-    category = models.ForeignKey(
-        Category, on_delete=models.PROTECT, default=1)
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
 
     title = models.CharField(max_length=100)
     content = models.TextField()
-    slug = models.SlugField(max_length=250, unique_for_date='published')
-    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='student')
-    mentor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='mentor')
+    slug = models.SlugField(max_length=250, unique_for_date="published")
+    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name="student")
+    mentor = models.ForeignKey(User, on_delete=models.CASCADE, related_name="mentor")
     date_posted = models.DateTimeField(default=timezone.now)
     start_date = models.DateTimeField(default=timezone.now)
     end_date = models.DateTimeField(default=timezone.now)
-    status = models.CharField(max_length=10, choices=options, default='published')
+    status = models.CharField(max_length=10, choices=options, default="published")
     objects = models.Manager()  # The default manager.
-    eventobjects = EventObjects() # custom manager for published posts 
+    eventobjects = EventObjects()  # custom manager for published posts
+
     class Meta:
-        ordering = ('-date_posted',)
+        ordering = ("-date_posted",)
 
     def __str__(self):
         return self.title

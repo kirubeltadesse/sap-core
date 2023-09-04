@@ -25,25 +25,12 @@ services:
       - POSTGRES_PASSWORD=rootPassword
     depends_on:
       - db
-    command: ["bash", "-c",
-      "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 \
-       manage.py runserver 0.0.0.0:8000 --nothreading --noreload"]
-  ui:
-    # restart: always
-    build:
-      context: ./frontend/
-      dockerfile: Dockerfile
-    volumes:
-      - ./frontend:/workspace/frontend
-      - ./frontend/node_modules:/workspace/frontend/node_modules
-    command: npm run start
-    ports:
-      - "3000:3000"
-      - "9229:9229"
-    stdin_open: true
-    tty: true
-    depends_on:
-    - svc
+    command: [
+        "bash",
+        "-c",
+        "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 \
+        manage.py runserver 0.0.0.0:8000 --nothreading --noreload",
+      ]
 
 volumes:
   postgresData:

@@ -160,6 +160,12 @@ To run the test you can just use the `pytest` package
 pytest
 ```
 
+Code formating
+
+```bash
+python -m black ...
+```
+
 ---
 
 <details>
