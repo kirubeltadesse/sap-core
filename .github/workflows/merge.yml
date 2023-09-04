@@ -1,0 +1,23 @@
+name: Check for Merge Conflicts
+
+on:
+  pull_request:
+    branches: [develop]
+    types:
+      - synchronize
+
+jobs:
+  check-merge-conflicts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Check for merge conflicts
+        run: |
+          git merge-base origin/main HEAD
+          if [[ $? -ne 0 ]]; then
+            echo "Merge conflict detected. Please resolve conflicts before merging."
+            exit 1
+          fi
